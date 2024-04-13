@@ -10,13 +10,11 @@ import {
   Message,
 } from 'semantic-ui-react';
 
-import mindImg from '../../images/mind.svg';
+// import mindImg from '../../images/mind.svg';
 
 import {
   CATEGORIES,
   NUM_OF_QUESTIONS,
-  DIFFICULTY,
-  QUESTIONS_TYPE,
   COUNTDOWN_TIME,
 } from '../../constants';
 import { shuffle } from '../../utils';
@@ -26,7 +24,7 @@ import Offline from '../Offline';
 const Main = ({ startQuiz }) => {
   const [category, setCategory] = useState('0');
   const [numOfQuestions, setNumOfQuestions] = useState(5);
-  const [questionsType, setQuestionsType] = useState('0');
+  // const [questionsType, setQuestionsType] = useState('0');
   const [countdownTime, setCountdownTime] = useState({
     hours: 0,
     minutes: 120,
@@ -44,7 +42,6 @@ const Main = ({ startQuiz }) => {
   if (
     category &&
     numOfQuestions &&
-    questionsType &&
     (countdownTime.hours || countdownTime.minutes || countdownTime.seconds)
   ) {
     allFieldsSelected = true;

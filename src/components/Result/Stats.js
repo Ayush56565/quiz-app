@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Segment, Header, Button } from 'semantic-ui-react';
 
-import ShareButton from '../ShareButton';
 import { calculateScore, calculateGrade, timeConverter } from '../../utils';
 
 const Stats = ({
@@ -13,7 +12,7 @@ const Stats = ({
   resetQuiz,
 }) => {
   const score = calculateScore(totalQuestions, correctAnswers);
-  const { grade, remarks } = calculateGrade(score);
+  const { remarks } = calculateGrade(score);
   const { hours, minutes, seconds } = timeConverter(timeTaken);
 
   return (
