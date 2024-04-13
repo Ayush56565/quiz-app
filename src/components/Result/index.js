@@ -13,7 +13,7 @@ const Result = ({
   replayQuiz,
   resetQuiz,
 }) => {
-  const [activeTab, setActiveTab] = useState('Stats');
+  const [activeTab, setActiveTab] = useState('Results');
 
   const handleTabClick = (e, { name }) => {
     setActiveTab(name);
