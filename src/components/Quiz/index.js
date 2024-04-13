@@ -70,75 +70,77 @@ const Quiz = ({ data, countdownTime, endQuiz }) => {
   };
 
   return (
-    <Item.Header>
-      <Container>
-        <Segment>
-          <Item.Group divided>
-            <Item>
-              <Item.Content>
-                <Item.Extra>
-                  <Header as="h1" block floated="left">
-                    <Icon name="info circle" />
-                    <Header.Content>
-                      {`Question ${questionIndex + 1}`}
-                    </Header.Content>
-                  </Header>
-                  <Countdown
-                    countdownTime={countdownTime}
-                    timeOver={timeOver}
-                    setTimeTaken={setTimeTaken}
-                  />
-                </Item.Extra>
-                <br />
-                <Item.Meta>
-                  <Message size="huge" floating>
-                    <b>{`${he.decode(data[questionIndex].question)}`}</b>
-                  </Message>
+    <div style={{ padding: 80 }}>
+      <Item.Header>
+        <Container>
+          <Segment>
+            <Item.Group divided>
+              <Item>
+                <Item.Content>
+                  <Item.Extra>
+                    <Header as="h1" block floated="left">
+                      <Icon name="info circle" />
+                      <Header.Content>
+                        {`Question ${questionIndex + 1}`}
+                      </Header.Content>
+                    </Header>
+                    <Countdown
+                      countdownTime={countdownTime}
+                      timeOver={timeOver}
+                      setTimeTaken={setTimeTaken}
+                    />
+                  </Item.Extra>
                   <br />
-                  <Item.Description>
-                    <h3>Choose one of the following:</h3>
-                  </Item.Description>
-                  <Divider />
-                  <Menu vertical fluid size="massive">
-                    {data[questionIndex].options.map((option, i) => {
-                      const letter = getLetter(i);
-                      const decodedOption = he.decode(option);
+                  <Item.Meta>
+                    <Message size="huge" floating>
+                      <b>{`${he.decode(data[questionIndex].question)}`}</b>
+                    </Message>
+                    <br />
+                    <Item.Description>
+                      <h3>Choose one of the following:</h3>
+                    </Item.Description>
+                    <Divider />
+                    <Menu vertical fluid size="massive">
+                      {data[questionIndex].options.map((option, i) => {
+                        const letter = getLetter(i);
+                        const decodedOption = he.decode(option);
 
-                      return (
-                        <Menu.Item
-                          key={decodedOption}
-                          name={decodedOption}
-                          active={userSlectedAns === decodedOption}
-                          onClick={handleItemClick}
-                        >
-                          <b style={{ marginRight: '8px' }}>{letter}</b>
-                          {decodedOption}
-                        </Menu.Item>
-                      );
-                    })}
-                  </Menu>
-                </Item.Meta>
-                <Divider />
-                <Item.Extra>
-                  <Button
-                    primary
-                    content="Next question"
-                    onClick={handleNext}
-                    floated="right"
-                    size="big"
-                    icon="right chevron"
-                    color="red"
-                    labelPosition="right"
-                    disabled={!userSlectedAns}
-                  />
-                </Item.Extra>
-              </Item.Content>
-            </Item>
-          </Item.Group>
-        </Segment>
-        <br />
-      </Container>
-    </Item.Header>
+                        return (
+                          <Menu.Item
+                            key={decodedOption}
+                            name={decodedOption}
+                            active={userSlectedAns === decodedOption}
+                            onClick={handleItemClick}
+                          >
+                            <b style={{ marginRight: '8px' }}>{letter}</b>
+                            {decodedOption}
+                          </Menu.Item>
+                        );
+                      })}
+                    </Menu>
+                  </Item.Meta>
+                  <Divider />
+                  <Item.Extra>
+                    <Button
+                      primary
+                      content="Next question"
+                      onClick={handleNext}
+                      floated="right"
+                      size="big"
+                      icon="right chevron"
+                      color="red"
+                      labelPosition="right"
+                      disabled={!userSlectedAns}
+                    />
+                  </Item.Extra>
+                </Item.Content>
+              </Item>
+            </Item.Group>
+          </Segment>
+          <br />
+        </Container>
+      </Item.Header>
+    </div>
   );
 };
 

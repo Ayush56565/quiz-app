@@ -20,31 +20,33 @@ const Result = ({
   };
 
   return (
-    <Container>
-      <Menu fluid widths={2}>
-        <Menu.Item
-          name="Result"
-          active={activeTab === 'Stats'}
-          onClick={handleTabClick}
-        />
-        {/* <Menu.Item
-          name="QNA"
-          active={activeTab === 'QNA'}
-          onClick={handleTabClick}
-        /> */}
-      </Menu>
-      {activeTab === 'Stats' && (
-        <Stats
-          totalQuestions={totalQuestions}
-          correctAnswers={correctAnswers}
-          timeTaken={timeTaken}
-          replayQuiz={replayQuiz}
-          resetQuiz={resetQuiz}
-        />
-      )}
-      {activeTab === 'QNA' && <QNA questionsAndAnswers={questionsAndAnswers} />}
-      <br />
-    </Container>
+    <div style={{ padding: 100 }}>
+      <Container>
+        <Menu fluid widths={2}>
+          <Menu.Item
+            name="Results"
+            active={activeTab === 'Results'}
+            onClick={handleTabClick}
+          />
+          <Menu.Item
+            name="Answers"
+            active={activeTab === 'Answers'}
+            onClick={handleTabClick}
+          />
+        </Menu>
+        {activeTab === 'Results' && (
+          <Stats
+            totalQuestions={totalQuestions}
+            correctAnswers={correctAnswers}
+            timeTaken={timeTaken}
+            replayQuiz={replayQuiz}
+            resetQuiz={resetQuiz}
+          />
+        )}
+        {activeTab === 'Answers' && <QNA questionsAndAnswers={questionsAndAnswers} />}
+        <br />
+      </Container>
+    </div>
   );
 };
 

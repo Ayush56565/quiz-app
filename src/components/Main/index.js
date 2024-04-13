@@ -108,103 +108,104 @@ const Main = ({ startQuiz }) => {
   if (offline) return <Offline />;
 
   return (
-    <Container>
-      <Segment>
-        <Item.Group divided>
-          <Item>
-            {/* <Item.Image src={mindImg} /> */}
-            <Item.Content>
-              <Item.Header>
-                <h1>Quiz Application</h1>
-              </Item.Header>
-              {error && (
-                <Message error onDismiss={() => setError(null)}>
-                  <Message.Header>Error!</Message.Header>
-                  {error.message}
-                </Message>
-              )}
-              <Divider />
-              <Item.Meta>
-                <p>Choose your category</p>
-                <Dropdown
-                  fluid
-                  selection
-                  name="category"
-                  placeholder="Select Quiz Category"
-                  header="Select Quiz Category"
-                  options={CATEGORIES}
-                  value={category}
-                  onChange={(e, { value }) => setCategory(value)}
-                  disabled={processing}
-                />
-                <br />
-                <p>No.of questions</p>
-                <Dropdown
-                  fluid
-                  selection
-                  name="numOfQ"
-                  placeholder="Select No. of Questions"
-                  header="Select No. of Questions"
-                  options={NUM_OF_QUESTIONS}
-                  value={numOfQuestions}
-                  onChange={(e, { value }) => setNumOfQuestions(value)}
-                  disabled={processing}
-                />
-                <br />
-                <p>Select the countdown time</p>
-                <Dropdown
-                  search
-                  selection
-                  name="hours"
-                  placeholder="Select Hours"
-                  header="Select Hours"
-                  options={COUNTDOWN_TIME.hours}
-                  value={countdownTime.hours}
-                  onChange={handleTimeChange}
-                  disabled={processing}
-                />
-                <Dropdown
-                  search
-                  selection
-                  name="minutes"
-                  placeholder="Select Minutes"
-                  header="Select Minutes"
-                  options={COUNTDOWN_TIME.minutes}
-                  value={countdownTime.minutes}
-                  onChange={handleTimeChange}
-                  disabled={processing}
-                />
-                <Dropdown
-                  search
-                  selection
-                  name="seconds"
-                  placeholder="Select Seconds"
-                  header="Select Seconds"
-                  options={COUNTDOWN_TIME.seconds}
-                  value={countdownTime.seconds}
-                  onChange={handleTimeChange}
-                  disabled={processing}
-                />
-              </Item.Meta>
-              <Divider />
-              <Item.Extra>
-                <Button
-                  primary
-                  size="big"
-                  icon="play"
-                  color="Teal"
-                  labelPosition="left"
-                  content={processing ? 'Starting...' : 'Start the quiz'}
-                  onClick={fetchData}
-                  disabled={!allFieldsSelected || processing}
-                />
-              </Item.Extra>
-            </Item.Content>
-          </Item>
-        </Item.Group>
-      </Segment>
-      <br />
-    </Container>
+    <div style={{ padding: 100 }}>
+      <Container>
+        <Segment>
+          <Item.Group divided>
+            <Item>
+              <Item.Content>
+                <Item.Header>
+                  <h1>Quiz Application</h1>
+                </Item.Header>
+                {error && (
+                  <Message error onDismiss={() => setError(null)}>
+                    <Message.Header>Error!</Message.Header>
+                    {error.message}
+                  </Message>
+                )}
+                <Divider />
+                <Item.Meta>
+                  <p>Choose your category</p>
+                  <Dropdown
+                    fluid
+                    selection
+                    name="category"
+                    placeholder="Select Quiz Category"
+                    header="Select Quiz Category"
+                    options={CATEGORIES}
+                    value={category}
+                    onChange={(e, { value }) => setCategory(value)}
+                    disabled={processing}
+                  />
+                  <br />
+                  <p>No.of questions</p>
+                  <Dropdown
+                    fluid
+                    selection
+                    name="numOfQ"
+                    placeholder="Select No. of Questions"
+                    header="Select No. of Questions"
+                    options={NUM_OF_QUESTIONS}
+                    value={numOfQuestions}
+                    onChange={(e, { value }) => setNumOfQuestions(value)}
+                    disabled={processing}
+                  />
+                  <br />
+                  <p>Select the countdown time</p>
+                  <Dropdown
+                    search
+                    selection
+                    name="hours"
+                    placeholder="Select Hours"
+                    header="Select Hours"
+                    options={COUNTDOWN_TIME.hours}
+                    value={countdownTime.hours}
+                    onChange={handleTimeChange}
+                    disabled={processing}
+                  />
+                  <Dropdown
+                    search
+                    selection
+                    name="minutes"
+                    placeholder="Select Minutes"
+                    header="Select Minutes"
+                    options={COUNTDOWN_TIME.minutes}
+                    value={countdownTime.minutes}
+                    onChange={handleTimeChange}
+                    disabled={processing}
+                  />
+                  <Dropdown
+                    search
+                    selection
+                    name="seconds"
+                    placeholder="Select Seconds"
+                    header="Select Seconds"
+                    options={COUNTDOWN_TIME.seconds}
+                    value={countdownTime.seconds}
+                    onChange={handleTimeChange}
+                    disabled={processing}
+                  />
+                </Item.Meta>
+                <Divider />
+                <Item.Extra>
+                  <Button
+                    primary
+                    size="big"
+                    icon="play"
+                    color="Teal"
+                    labelPosition="left"
+                    content={processing ? 'Starting...' : 'Start the quiz'}
+                    onClick={fetchData}
+                    disabled={!allFieldsSelected || processing}
+                  />
+                </Item.Extra>
+              </Item.Content>
+            </Item>
+          </Item.Group>
+        </Segment>
+        <br />
+      </Container>
+    </div>
   );
 };
 
